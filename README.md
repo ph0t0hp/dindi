@@ -1,0 +1,2 @@
+# dindi
+Dindi scripts
