@@ -1,4 +1,4 @@
 import os
 
-os.system('python -m pip install argparse')
-os.system('python -m pip install nmap3')
+os.system('python3 -m pip install argparse')
+os.system('python3 -m pip install nmap3')
