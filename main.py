@@ -122,8 +122,11 @@ def attack_target(target, port, connections, duration, protocol):
     os.system(exe_command)
 
 def intialize_dripper():
-    os.system('git clone https://github.com/alexmon1989/russia_ddos.git')
-    os.system('cd russia_ddos && sudo python3 ./setup.py install')
+    if os.path.exists('russia_ddos'):
+        os.system('cd russia_ddos && git pull && sudo python3 ./setup.py install')
+    else:
+        os.system('git clone https://github.com/alexmon1989/russia_ddos.git')
+        os.system('cd russia_ddos && sudo python3 ./setup.py install')
 
 def main():
     print("Starting dindi...")
